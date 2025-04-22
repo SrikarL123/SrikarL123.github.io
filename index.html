@@ -3,18 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+
   <title>Srikar Lokai | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
-    <img src="myphoto.jpg" alt="Profile Photo" class="profile-pic" />
+    <h2>Hello, I am</h2>
     <h1>Srikar Lokai</h1>
     <p>Data Analyst | Writer | Prompt Engineer</p>
+    <div class="buttons">
+      <a href="https://linkedin.com/in/srikar-lokai/" target="_blank">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1wi23vNKSD1ok1xcEncV9vhe7Tq-XuaWN/view?usp=sharing" target="_blank">Resume</a>
+    </div>
   </header>
 
   <main>
     <section class="section">
+      <div class="about-content">
+        <img src="myphoto.jpg" alt="Profile Photo" class="profile-pic-left" />
+        <div class="about-text">
       <h2>About Me</h2>
       <p>
         I'm a student with a passion for data analysis, storytelling, and AI-driven creativity.
@@ -36,23 +45,31 @@
     </section>
 
     <section class="section">
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="https://github.com/SrikarL123/POWERBI-PROJECTS" target="_blank">PowerBI Projects</a></li>
-      </ul>
+      <h2>Projects / Works</h2>
+      <div class="projects-works-container">
+        
+        <div class="work-box">
+          <h3>Data Projects</h3>
+          <ul>
+            <li><a href="https://github.com/SrikarL123/POWERBI-PROJECTS" target="_blank">PowerBI Projects</a></li>
+          </ul>
+        </div>
+    
+        <div class="work-box">
+          <h3>Creative Writing</h3>
+          <ul>
+            <li><a href="https://www.wattpad.com/user/sriwrts" target="_blank">Wattpad Stories</a></li>
+          </ul>
+        </div>
+    
+      </div>
     </section>
-
-    <section class="section">
-        <h2>Wattpad</h2>
-        <ul>
-          <li><a href="https://www.wattpad.com/user/sriwrts" target="_blank">Wattpad Stories</a></li>
-        </ul>
-      </section>
+    
 
     <section class="section">
       <h2>Experience</h2>
       <ul>
-        <li> AI-powered Data Analysis Global Internship -
+        <li>AI powered Data Analysis Global Internship -
             <a href="https://drive.google.com/file/d/1zfnykMfd4CgzkxOLP1MqEWipZ70pBMiT/view?usp=drive_link" target="_blank">check here</a>
         </li>
         <li>Project Management Global Internship -
@@ -69,7 +86,7 @@
         <h2>Achievements</h2>
         <ul>
           <li>
-            Secured a place in the top 5000 in a national-level Hackathon -
+            Secured a place in top 20% out of 25000 participants in a national level Hackathon -
             <a href="https://drive.google.com/file/d/188v0sJUSH4qhnNHRyK9bjCh0wedpIMW1/view?usp=drive_link" target="_blank">check it here</a>
           </li>
           <li>Participated in multiple Hackathons</li>
@@ -91,5 +108,25 @@
       
     </footer>
   </main>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+  
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Optional: removes the observer once it's visible
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+  
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+  
 </body>
 </html>
