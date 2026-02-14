@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+
+  <title>Srikar Lokai | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Day / Night theme toggle (top right) -->
+  <div class="theme-toggle" role="switch" aria-label="Toggle dark mode" aria-checked="false" title="Toggle day/night mode" id="theme-toggle">
+    <span class="theme-toggle-icon theme-sun" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </span>
+    <span class="theme-toggle-icon theme-moon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </span>
+    <span class="theme-toggle-pill"></span>
+  </div>
+
+  <!-- Subtle data-viz background graphics -->
+  <div class="bg-decor" aria-hidden="true">
+    <div class="bg-decor-item bg-decor-bars" title="">
+      <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="45" width="18" height="35" rx="2" fill="currentColor"/>
+        <rect x="34" y="25" width="18" height="55" rx="2" fill="currentColor"/>
+        <rect x="58" y="35" width="18" height="45" rx="2" fill="currentColor"/>
+        <rect x="82" y="15" width="18" height="65" rx="2" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="bg-decor-item bg-decor-donut" title="">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="12" stroke-dasharray="60 140"/>
+        <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="12" stroke-dasharray="45 155" stroke-dashoffset="-60"/>
+        <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="12" stroke-dasharray="55 145" stroke-dashoffset="-105"/>
+      </svg>
+    </div>
+    <div class="bg-decor-item bg-decor-line" title="">
+      <svg viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 55 L35 40 L60 45 L90 25 L130 30" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 55 L35 40 L60 45 L90 25 L130 30 L130 70 L10 70 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="bg-decor-item bg-decor-bars-2" title="">
+      <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="35" width="14" height="25" rx="2" fill="currentColor"/>
+        <rect x="28" y="20" width="14" height="40" rx="2" fill="currentColor"/>
+        <rect x="48" y="28" width="14" height="32" rx="2" fill="currentColor"/>
+        <rect x="68" y="10" width="14" height="50" rx="2" fill="currentColor"/>
+        <rect x="88" y="22" width="14" height="38" rx="2" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="bg-decor-item bg-decor-donut-2" title="">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="10" stroke-dasharray="47 142"/>
+        <circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="10" stroke-dasharray="94 95" stroke-dashoffset="-47"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Full-page dotted path behind content; crosses header and zigzags through sections -->
+  <div class="path-track" id="path-track" aria-hidden="true">
+    <svg class="path-svg" id="path-svg">
+      <defs>
+        <mask id="path-section-mask">
+          <rect width="100%" height="100%" fill="white"/>
+          <g id="path-mask-holes"></g>
+        </mask>
+      </defs>
+      <path id="path-curve" class="path-curve" fill="none" mask="url(#path-section-mask)"/>
+    </svg>
+    <div class="path-character" id="path-character">
+      <div class="character-body"></div>
+      <div class="character-head">
+        <span class="char-eye char-eye-l"></span>
+        <span class="char-eye char-eye-r"></span>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="header-shapes" aria-hidden="true">
+      <span class="header-shape header-shape-1"></span>
+      <span class="header-shape header-shape-2"></span>
+      <span class="header-shape header-shape-3"></span>
+      <span class="header-shape header-shape-4"></span>
+      <span class="header-shape header-shape-5"></span>
+    </div>
+    <h2>Hello, I am</h2>
+    <h1>Srikar Lokai</h1>
+    <p>Data Analyst | Writer | Prompt Engineer</p>
+    <div class="buttons">
+      <a href="https://linkedin.com/in/srikar-lokai/" target="_blank">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1wi23vNKSD1ok1xcEncV9vhe7Tq-XuaWN/view?usp=sharing" target="_blank">Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="about-me">
+      <div class="about-content">
+        <img src="myphoto.jpg" alt="Profile Photo" class="profile-pic-left" />
+        <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I'm a student with a passion for data analysis, storytelling, and AI-driven creativity.
+        I specialize in building dashboards using Power BI and Excel, and I write fiction on Wattpad.
+        Constantly learning and exploring new tech and narrative styles!
+      </p>
+    </section>
+
+    <section class="section" id="skills">
+      <h2>Skills</h2>
+      <div class="tags">
+        <span>Power BI</span>
+        <span>Excel</span>
+        <span>Tableau</span>
+        <span>Prompt Engineering</span>
+        <span>Team Management</span>
+        <span>Fiction Writing</span>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <h2>Projects / Works</h2>
+      <div class="projects-works-container">
+        
+        <div class="work-box">
+          <h3>Data Projects</h3>
+          <ul>
+            <li><a href="https://github.com/SrikarL123/POWERBI-PROJECTS" target="_blank">PowerBI Projects</a></li>
+          </ul>
+        </div>
+    
+        <div class="work-box">
+          <h3>Creative Writing</h3>
+          <ul>
+            <li><a href="https://www.wattpad.com/user/sriwrts" target="_blank">Wattpad Stories</a></li>
+          </ul>
+        </div>
+    
+      </div>
+    </section>
+    
+
+    <section class="section" id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li>AI powered Data Analysis Global Internship -
+            <a href="https://drive.google.com/file/d/1zfnykMfd4CgzkxOLP1MqEWipZ70pBMiT/view?usp=drive_link" target="_blank">check here</a>
+        </li>
+        <li>Project Management Global Internship -
+            <a href="https://drive.google.com/file/d/1IfX81sLaW88aLBhcTNlHIX2ywDBV36yg/view?usp=sharing" target="_blank">check here</a>
+
+        </li>
+        <li>Data Analysis Global Internship -
+            <a href="https://drive.google.com/file/d/15hyNxWbVxoa-W0YytuEWkMXNxRlSwPa7/view?usp=sharing" target="_blank">check here</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="achievements">
+        <h2>Achievements</h2>
+        <ul>
+          <li>
+            Secured a place in top 20% out of 25000 participants in a national level Hackathon -
+            <a href="https://drive.google.com/file/d/188v0sJUSH4qhnNHRyK9bjCh0wedpIMW1/view?usp=drive_link" target="_blank">check it here</a>
+          </li>
+          <li>Participated in multiple Hackathons</li>
+        </ul>
+      </section>
+      
+  
+
+   
+
+    <footer>
+      <p>Connect with me:</p>
+      <div class="socials">
+        <a href="mailto:srikar0912@gmail.com" target="_blank">Email</a>
+        <a href="https://linkedin.com/in/srikar-lokai/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/SrikarL123" target="_blank">GitHub</a>
+        <a href="https://www.wattpad.com/user/sriwrts" target="_blank">Wattpad</a>
+      </div>
+      
+    </footer>
+  </main>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+
+    (function themeToggle() {
+      var KEY = 'portfolio-theme';
+      var toggle = document.getElementById('theme-toggle');
+      function setTheme(dark) {
+        document.body.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (toggle) toggle.setAttribute('aria-checked', dark ? 'true' : 'false');
+        try { localStorage.setItem(KEY, dark ? 'dark' : 'light'); } catch (e) {}
+      }
+      function isDark() { return document.body.getAttribute('data-theme') === 'dark'; }
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'dark') setTheme(true);
+        else if (!document.body.hasAttribute('data-theme')) setTheme(false);
+      } catch (e) {}
+      if (toggle) {
+        toggle.setAttribute('aria-checked', isDark() ? 'true' : 'false');
+        toggle.addEventListener('click', function () { setTheme(!isDark()); });
+      }
+    })();
+
+    // Full-page path: start left top, cross behind header, zigzag through each section. Character fixed, moves with scroll.
+    (function () {
+      var character = document.getElementById('path-character');
+      var pathEl = document.getElementById('path-curve');
+      var pathSvg = document.getElementById('path-svg');
+      var pathTrack = document.getElementById('path-track');
+      var sectionIds = ['about-me', 'skills', 'projects', 'experience', 'achievements'];
+      var margin = 36;
+      var charW = 32, charH = 40;
+
+      function docRect(el) {
+        var r = el.getBoundingClientRect();
+        return {
+          top: r.top + window.scrollY,
+          bottom: r.bottom + window.scrollY,
+          left: r.left + window.scrollX,
+          right: r.right + window.scrollX,
+          width: r.width,
+          height: r.height,
+          centerY: r.top + window.scrollY + r.height / 2
+        };
+      }
+
+      function buildPath() {
+        var W = window.innerWidth;
+        var scrollY = window.scrollY;
+        var sections = sectionIds.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+        if (!sections.length) return;
+
+        var r0 = docRect(sections[0]);
+        var firstInY = r0.top + Math.min(80, r0.height * 0.3);
+        var d = 'M ' + (W - margin) + ' 0 ';
+        d += 'L ' + (W - margin) + ' ' + firstInY + ' ';
+
+        sections.forEach(function (el, i) {
+          var r = docRect(el);
+          var inY = r.top + Math.min(80, r.height * 0.3);
+          var outY = r.bottom - Math.min(60, r.height * 0.25);
+          if (i % 2 === 0) {
+            if (i > 0) d += 'L ' + (W - margin) + ' ' + inY + ' ';
+            d += 'Q ' + (W / 2) + ' ' + r.centerY + ' ' + margin + ' ' + outY + ' ';
+          } else {
+            d += 'L ' + margin + ' ' + inY + ' ';
+            d += 'Q ' + (W / 2) + ' ' + r.centerY + ' ' + (W - margin) + ' ' + outY + ' ';
+          }
+        });
+
+        pathEl.setAttribute('d', d);
+
+        var docH = document.documentElement.scrollHeight;
+        pathTrack.style.height = docH + 'px';
+        pathSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + docH);
+        pathSvg.setAttribute('width', W);
+        pathSvg.setAttribute('height', docH);
+
+        var holes = document.getElementById('path-mask-holes');
+        if (holes) {
+          holes.innerHTML = '';
+          sections.forEach(function (el) {
+            var r = docRect(el);
+            var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            rect.setAttribute('x', r.left);
+            rect.setAttribute('y', r.top);
+            rect.setAttribute('width', r.width);
+            rect.setAttribute('height', r.height);
+            rect.setAttribute('fill', 'black');
+            holes.appendChild(rect);
+          });
+        }
+      }
+
+      function pathPointToViewport(pathX, pathY) {
+        return { x: pathX, y: pathY - window.scrollY };
+      }
+
+      function updateCharacterPosition() {
+        if (!pathEl || !pathEl.getTotalLength) return;
+        var scrollY = window.scrollY;
+        var docH = document.documentElement.scrollHeight - window.innerHeight;
+        if (docH <= 0) {
+          var pt = pathEl.getPointAtLength(0);
+          var v = pathPointToViewport(pt.x, pt.y);
+          character.style.left = (v.x - charW / 2) + 'px';
+          character.style.top = (v.y - charH) + 'px';
+          return;
+        }
+        var progress = Math.max(0, Math.min(1, scrollY / docH));
+        var totalLen = pathEl.getTotalLength();
+        var pt = pathEl.getPointAtLength(progress * totalLen);
+        var v = pathPointToViewport(pt.x, pt.y);
+        character.style.left = (v.x - charW / 2) + 'px';
+        character.style.top = (v.y - charH) + 'px';
+      }
+
+      function updateSectionHighlight() {
+        var charCenterX = parseFloat(character.style.left) + charW / 2;
+        var charCenterY = parseFloat(character.style.top) + charH / 2;
+        sectionIds.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          var r = el.getBoundingClientRect();
+          var inside = charCenterX >= r.left && charCenterX <= r.right && charCenterY >= r.top && charCenterY <= r.bottom;
+          el.classList.toggle('character-inside', inside);
+        });
+      }
+
+      function onScroll() {
+        updateCharacterPosition();
+        updateSectionHighlight();
+      }
+
+      window.addEventListener('scroll', onScroll);
+      window.addEventListener('resize', function () {
+        buildPath();
+        updateCharacterPosition();
+        updateSectionHighlight();
+      });
+      window.addEventListener('load', function () {
+        buildPath();
+        updateCharacterPosition();
+        updateSectionHighlight();
+      });
+
+      buildPath();
+      updateCharacterPosition();
+      updateSectionHighlight();
+    })();
+  </script>
+  
+</body>
+</html>
