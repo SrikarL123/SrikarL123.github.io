@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI & Automation Projects | Srikar Lokai</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .projects-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8b5cf6;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .back-btn:hover { transform: translateX(-4px); color: #a78bfa; }
+    .page-title { font-size: 3rem; color: #8b5cf6; margin-bottom: 0.4rem; }
+    .page-subtitle { font-size: 1.05rem; color: #888; margin-bottom: 3.5rem; }
+    body:not([data-theme="dark"]) .page-subtitle { color: #666; }
+    .category-block { margin-bottom: 4rem; }
+    .category-label { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .category-label h2 { font-size: 1.5rem; font-weight: 700; color: #e4e6e9; white-space: nowrap; }
+    body:not([data-theme="dark"]) .category-label h2 { color: #1a1d23; }
+    .cat-icon { font-size: 1.4rem; }
+    .category-divider { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(139,92,246,0.5), transparent); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem; }
+    .project-card-full {
+      background: rgba(30, 30, 38, 0.95);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-top: 3px solid;
+      border-image: linear-gradient(90deg, #8b5cf6, #eab308) 1;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card-full:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(139, 92, 246, 0.3); }
+    .project-card-full img { width: 100%; display: block; max-height: 180px; object-fit: cover; }
+    .project-card-body { padding: 1.4rem 1.5rem; }
+    .project-card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #f0f0f0; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .project-tag {
+      background: linear-gradient(90deg, rgba(139,92,246,0.3), rgba(99,102,241,0.2));
+      color: #ddd6fe;
+      border: 1px solid rgba(139,92,246,0.4);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .project-card-body p { font-size: 0.9rem; color: #b0b4be; line-height: 1.6; }
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .card-title-row h3 { margin-bottom: 0; }
+    .card-link-btn {
+      font-size: 1.1rem;
+      color: #8b5cf6;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .card-link-btn:hover { color: #a78bfa; transform: translate(2px, -2px); }
+    body:not([data-theme="dark"]) .card-link-btn { color: #6d28d9; }
+    body:not([data-theme="dark"]) .project-card-full { background: rgba(255,255,255,0.95); border-color: rgba(139,92,246,0.2); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    body:not([data-theme="dark"]) .project-card-body h3 { color: #1a1d23; }
+    body:not([data-theme="dark"]) .project-card-body p { color: #555; }
+    body:not([data-theme="dark"]) .project-tag { background: linear-gradient(90deg, rgba(139,92,246,0.15), rgba(99,102,241,0.1)); color: #4c1d95; border-color: rgba(139,92,246,0.3); }
+  
+  .chatbot-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 400px);
+  gap: 1.75rem;
+}
+  
+  
+  </style>
+</head>
+<body>
+
+  <div class="theme-toggle" role="switch" aria-label="Toggle dark mode" aria-checked="false" id="theme-toggle">
+    <span class="theme-toggle-icon theme-sun" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </span>
+    <span class="theme-toggle-icon theme-moon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </span>
+    <span class="theme-toggle-pill"></span>
+  </div>
+
+  <main class="projects-page">
+
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+
+    <h1 class="page-title">AI & Automation</h1>
+    <p class="page-subtitle">Chatbots, workflow automation, and AI-powered tools.</p>
+
+    <!-- ===== AUTOMATION ===== -->
+    <div class="category-block">
+      <div class="category-label">
+        <span class="cat-icon">⚙️</span>
+        <h2>Automation</h2>
+        <div class="category-divider"></div>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card-full">
+          <img src="images/img16.jpg" alt="Data Cleaning Automation">
+          <div class="project-card-body">
+            <div class="card-title-row">
+              <h3>Data Cleaning Automation</h3>
+              <a href="https://github.com/SrikarL123/AI-Automation/blob/main/Data%20Cleaning%20Automation/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">n8n</span>
+              <span class="project-tag">Workflow Automation</span>
+              <span class="project-tag">Data Cleaning</span>
+              <span class="project-tag">Google Sheets</span>
+            </div>
+            <p>Automated data cleaning pipeline built with n8n — pulls raw data from Google Sheets, processes and cleans it using JavaScript, and appends the cleaned output back automatically.</p>
+          </div>
+        </div>
+
+        <div class="project-card-full">
+          <img src="images/img15.png" alt="Event Registration Automation">
+          <div class="project-card-body">
+            <div class="card-title-row">
+              <h3>Event Registration Automation</h3>
+              <a href="https://github.com/SrikarL123/AI-Automation/blob/main/Event%20Registration%20Automation/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Zapier</span>
+              <span class="project-tag">Workflow Automation</span>
+              <span class="project-tag">Email Automation</span>
+            </div>
+            <p>Zapier-based automation that streamlines event registration — automatically captures form submissions, sends confirmation emails, and logs registrations to a spreadsheet without manual effort.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== AI CHATBOT ===== -->
+    <div class="category-block">
+      <div class="category-label">
+        <span class="cat-icon">🤖</span>
+        <h2>AI Chatbot</h2>
+        <div class="category-divider"></div>
+      </div>
+      <div class="chatbot-grid">
+
+        <div class="project-card-full">
+          <img src="images/img14.png" alt="Friendly AI Chatbot">
+          <div class="project-card-body">
+            <div class="card-title-row">
+              <h3>Friendly AI Chatbot</h3>
+              <a href="https://github.com/SrikarL123/Friendly-Chatbot/blob/main/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">Groq API</span>
+              <span class="project-tag">REST API</span>
+            </div>
+            <p>Flask-based chatbot powered by the Groq API with real-time AI responses. Features a Spider-Man themed UI with dark/light mode, chat history, and a clean message interface.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+
+
+
+    (function themeToggle() {
+      var KEY = 'portfolio-theme';
+      var toggle = document.getElementById('theme-toggle');
+      function setTheme(dark) {
+        document.body.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (toggle) toggle.setAttribute('aria-checked', dark ? 'true' : 'false');
+        try { localStorage.setItem(KEY, dark ? 'dark' : 'light'); } catch (e) {}
+      }
+      function isDark() { return document.body.getAttribute('data-theme') === 'dark'; }
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light') { setTheme(false); } else { setTheme(true); }
+      } catch (e) {}
+      if (toggle) {
+        toggle.setAttribute('aria-checked', isDark() ? 'true' : 'false');
+        toggle.addEventListener('click', function () { setTheme(!isDark()); });
+      }
+    })();
+  </script>
+
+  
+
+</body>
+</html>

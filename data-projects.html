@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Projects | Srikar Lokai</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .projects-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8b5cf6;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .back-btn:hover { transform: translateX(-4px); color: #a78bfa; }
+    .page-title { font-size: 3rem; color: #8b5cf6; margin-bottom: 0.4rem; }
+    .page-subtitle { font-size: 1.05rem; color: #888; margin-bottom: 3.5rem; }
+    body:not([data-theme="dark"]) .page-subtitle { color: #666; }
+    .category-block { margin-bottom: 4rem; }
+    .category-label { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .category-label h2 { font-size: 1.5rem; font-weight: 700; color: #e4e6e9; white-space: nowrap; }
+    body:not([data-theme="dark"]) .category-label h2 { color: #1a1d23; }
+    .cat-icon { font-size: 1.4rem; }
+    .category-divider { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(139,92,246,0.5), transparent); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem; }
+    .project-card-full {
+      background: rgba(30, 30, 38, 0.95);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-top: 3px solid;
+      border-image: linear-gradient(90deg, #8b5cf6, #eab308) 1;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-title-row h3 {
+  margin-bottom: 0;
+}
+
+.card-link-btn {
+  font-size: 1.1rem;
+  color: #8b5cf6;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.card-link-btn:hover {
+  color: #a78bfa;
+  transform: translate(2px, -2px);
+}
+
+body:not([data-theme="dark"]) .card-link-btn {
+  color: #6d28d9;
+}
+
+
+
+    .project-card-full:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(139, 92, 246, 0.3); }
+    .project-card-full img { width: 100%; display: block; max-height: 180px; object-fit: cover; }
+    .project-card-body { padding: 1.4rem 1.5rem; }
+    .project-card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #f0f0f0; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .project-tag {
+      background: linear-gradient(90deg, rgba(139,92,246,0.3), rgba(99,102,241,0.2));
+      color: #ddd6fe;
+      border: 1px solid rgba(139,92,246,0.4);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .project-card-body p { font-size: 0.9rem; color: #b0b4be; line-height: 1.6; }
+    .project-card-empty {
+      background: rgba(30, 30, 38, 0.4);
+      border: 1px dashed rgba(139, 92, 246, 0.25);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(139, 92, 246, 0.5);
+      font-size: 0.9rem;
+      font-style: italic;
+      min-height: 120px;
+    }
+    body:not([data-theme="dark"]) .project-card-full { background: rgba(255,255,255,0.95); border-color: rgba(139,92,246,0.2); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    body:not([data-theme="dark"]) .project-card-body h3 { color: #1a1d23; }
+    body:not([data-theme="dark"]) .project-card-body p { color: #555; }
+    body:not([data-theme="dark"]) .project-tag { background: linear-gradient(90deg, rgba(139,92,246,0.15), rgba(99,102,241,0.1)); color: #4c1d95; border-color: rgba(139,92,246,0.3); }
+    body:not([data-theme="dark"]) .project-card-empty { background: rgba(139,92,246,0.04); }
+  </style>
+</head>
+<body>
+
+  <div class="theme-toggle" role="switch" aria-label="Toggle dark mode" aria-checked="false" id="theme-toggle">
+    <span class="theme-toggle-icon theme-sun" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </span>
+    <span class="theme-toggle-icon theme-moon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </span>
+    <span class="theme-toggle-pill"></span>
+  </div>
+
+  <main class="projects-page">
+
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+
+    <h1 class="page-title">Data Projects</h1>
+    <p class="page-subtitle">Dashboards, SQL analysis, and Python-driven insights.</p>
+
+    <!-- ===== POWER BI ===== -->
+    <div class="category-block">
+      <div class="category-label">
+        <span class="cat-icon">📊</span>
+        <h2>Power BI</h2>
+        <div class="category-divider"></div>
+      </div>
+      <div class="projects-grid">
+
+<div class="project-card-full">
+  <img src="images/img1.png" alt="HR Attrition Dashboard">
+  <div class="project-card-body">
+    <div class="card-title-row">
+      <h3>HR Analytics Dashboard for Attrition</h3>
+      <a href="https://github.com/SrikarL123/POWERBI-PROJECTS/blob/main/HR%20ANALYTICS%20ON%20ATTRITION/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+    </div>
+    <div class="project-tags">
+      <span class="project-tag">Power BI</span>
+      <span class="project-tag">DAX</span>
+      <span class="project-tag">Data Visualization</span>
+    </div>
+    <p>Multi-page Power BI dashboard analyzing employee attrition across departments, age groups, and job roles with dynamic filtering and KPIs for attrition rate and average age.</p>
+  </div>
+</div>
+
+        <div class="project-card-full">
+          <img src="images/img2.png" alt="Titanic Loss Report">
+          <div class="project-card-body">
+            <div class="card-title-row">
+  <h3>Titanic Loss Report</h3>
+  <a href="https://github.com/SrikarL123/POWERBI-PROJECTS/blob/main/Titanic%20Loss%20Report/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+</div>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">Data Visualization</span>
+              <span class="project-tag">Statistical Analysis</span>
+            </div>
+            <p>Dashboard analyzing Titanic passenger survival data across gender, age groups, class, and embarkation port — with fare distribution and family size breakdowns.</p>
+          </div>
+        </div>
+
+        <div class="project-card-full">
+          <img src="images/img3.png" alt="SN Corp Dashboard">
+          <div class="project-card-body">
+            <div class="card-title-row">
+              <h3>SN Corp Sales Dashboard</h3>
+              <a href="https://github.com/SrikarL123/POWERBI-PROJECTS/blob/main/SN%20Corp%20Dashboard/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">DAX</span>
+              <span class="project-tag">KPI Tracking</span>
+              <span class="project-tag">Maps</span>
+            </div>
+            <p>Business dashboard tracking $1.3M in sales, cost, and profit with customer-level breakdowns, regional quantity analysis, geographic map, and quarterly order trends.</p>
+          </div>
+        </div>
+
+        <div class="project-card-full">
+          <img src="images/img4.png" alt="Amazon Sales Analytics">
+          <div class="project-card-body">
+            <div class="card-title-row">
+  <h3>Amazon Sales Analytics</h3>
+  <a href="https://github.com/SrikarL123/POWERBI-PROJECTS/blob/main/Amazon%20Sales%20Analytics/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+</div>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">Time Series</span>
+              <span class="project-tag">E-Commerce</span>
+              <span class="project-tag">Treemap</span>
+            </div>
+            <p>E-commerce sales dashboard with time series trends, category-level treemap, state-wise profit analysis, and KPIs for total orders, quantity, and revenue across 3 years.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+<!-- ===== SQL ===== -->
+<div class="category-block">
+  <div class="category-label">
+    <span class="cat-icon">🗄️</span>
+    <h2>SQL</h2>
+    <div class="category-divider"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card-full">
+      <img src="images/img5.png" alt="International Sales SQL Analysis">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>International Sales Report</h3>
+          <a href="https://github.com/SrikarL123/SQL-Projects/blob/main/International%20Sales%20Report/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Data Analysis</span>
+          <span class="project-tag">Segmentation</span>
+          <span class="project-tag">Subqueries</span>
+        </div>
+        <p>Advanced SQL analysis on global apparel sales — customer segmentation with CASE, SKU revenue contribution via subqueries, top product rankings, and order value efficiency metrics.</p>
+      </div>
+    </div>
+
+    <div class="project-card-full">
+      <img src="images/img6.png" alt="Amazon Sales Report">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>Amazon Sales Report</h3>
+          <a href="https://github.com/SrikarL123/SQL-Projects/blob/main/Amazon%20Sales%20Report/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Sales Analysis</span>
+          <span class="project-tag">Aggregations</span>
+        </div>
+        <p>SQL-based analysis of Amazon sales data covering revenue trends, top-performing products, and regional sales breakdowns using aggregations and joins.</p>
+      </div>
+    </div>
+
+    <div class="project-card-full">
+      <img src="images/img7.png" alt="GATE Applicants">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>GATE Applicants Analysis</h3>
+          <a href="https://github.com/SrikarL123/SQL-Projects/blob/main/Gate_Applicants/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Education Data</span>
+          <span class="project-tag">Trend Analysis</span>
+        </div>
+        <p>SQL analysis on GATE exam applicant data — exploring enrollment trends, discipline-wise participation, and year-on-year changes across engineering streams.</p>
+      </div>
+    </div>
+
+    <div class="project-card-full">
+      <img src="images/img8.png" alt="May Sales">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>May Sales Report</h3>
+          <a href="https://github.com/SrikarL123/SQL-Projects/blob/main/May%20Sales/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Sales Report</span>
+          <span class="project-tag">Filtering</span>
+        </div>
+        <p>Focused SQL report on May sales performance — analyzing daily revenue, top products, and customer purchase patterns using filtering and grouping queries.</p>
+      </div>
+    </div>
+
+    <div class="project-card-full">
+      <img src="images/img9.png" alt="Netflix Report">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>Best Netflix Content Report</h3>
+          <a href="https://github.com/SrikarL123/SQL-Projects/blob/main/Best%20Netflix%20Content/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Entertainment Data</span>
+          <span class="project-tag">Rankings</span>
+        </div>
+        <p>SQL analysis on Netflix content data — identifying top-rated shows and movies by genre, country, and release year using ranking functions and conditional queries.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PYTHON ===== -->
+<div class="category-block">
+  <div class="category-label">
+    <span class="cat-icon">🐍</span>
+    <h2>Python</h2>
+    <div class="category-divider"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card-full">
+      <img src="images/img10.jpg" alt="Facebook Report">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>Facebook Data Analysis</h3>
+          <a href="https://github.com/SrikarL123/Python-Projects/blob/main/Facebook%20Report/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">Data Cleaning</span>
+          <span class="project-tag">EDA</span>
+        </div>
+        <p>Exploratory data analysis on Facebook user data — cleaning, transforming, and visualizing engagement patterns and user behavior using Python and Pandas.</p>
+      </div>
+    </div>
+
+    <div class="project-card-full">
+      <img src="images/img11.jpg" alt="Netflix Dataset">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>Netflix Dataset Analysis</h3>
+          <a href="https://github.com/SrikarL123/Python-Projects/blob/main/Netflix%20Dataset/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">Data Cleaning</span>
+          <span class="project-tag">Visualization</span>
+        </div>
+        <p>Data cleaning and analysis on Netflix content — handling missing values, standardizing formats, and uncovering trends in genres, ratings, and release patterns.</p>
+      </div>
+    </div>
+
+    <div class="project-card-full">
+      <img src="images/img12.jpg" alt="Amazon Sales Report">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>Amazon Sales Report</h3>
+          <a href="https://github.com/SrikarL123/Python-Projects/blob/main/Amazon%20Sales%20Report/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">Sales Analysis</span>
+          <span class="project-tag">EDA</span>
+        </div>
+        <p>Python-based analysis of Amazon sales data — cleaning raw records, analyzing revenue trends, and identifying top-performing products and regions.</p>
+      </div>
+    </div>
+
+    <div class="project-card-full">
+      <img src="images/img13.jpg" alt="Student Habits Performance">
+      <div class="project-card-body">
+        <div class="card-title-row">
+          <h3>Student Habits & Performance</h3>
+          <a href="https://github.com/SrikarL123/Python-Projects/blob/main/Student_habits_performance/README.md" target="_blank" class="card-link-btn" title="View Project">↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">Correlation Analysis</span>
+          <span class="project-tag">EDA</span>
+        </div>
+        <p>Analysis of student lifestyle habits and their impact on academic performance — exploring correlations between study hours, sleep, and exam scores.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  </main>
+
+  <script>
+    (function themeToggle() {
+      var KEY = 'portfolio-theme';
+      var toggle = document.getElementById('theme-toggle');
+      function setTheme(dark) {
+        document.body.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (toggle) toggle.setAttribute('aria-checked', dark ? 'true' : 'false');
+        try { localStorage.setItem(KEY, dark ? 'dark' : 'light'); } catch (e) {}
+      }
+      function isDark() { return document.body.getAttribute('data-theme') === 'dark'; }
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light') { setTheme(false); } else { setTheme(true); }
+      } catch (e) {}
+      if (toggle) {
+        toggle.setAttribute('aria-checked', isDark() ? 'true' : 'false');
+        toggle.addEventListener('click', function () { setTheme(!isDark()); });
+      }
+    })();
+  </script>
+
+</body>
+</html>
